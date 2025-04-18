@@ -7,9 +7,9 @@
     "start": "node --watch server.js",
     "start:prod": "NODE_ENV=production node --watch server.js",
     "debug": "ndb server.js",
+    "build": "npm install && esbuild server.js --bundle --platform=node --outfile=dist/server.js",
     "import-data": "node dev-data/data/import-dev-data.js --import",
     "delete-data": "node dev-data/data/import-dev-data.js --delete"
-
   },
   "author": "felipe medina",
   "license": "ISC",
@@ -36,6 +36,7 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
+    "esbuild": "^0.25.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
