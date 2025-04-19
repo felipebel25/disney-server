@@ -7,8 +7,8 @@
     "start-dev": "node server.js",
     "start:prod": "NODE_ENV=production node --watch server.js",
     "debug": "ndb server.js",
-    "build": "parcel build src/index.js --target node --out-dir dist --bundle-node-modules",
-    "start": "node dist/index.js",
+    "build": "parcel build server.js",
+    "start": "node dist/server.js",
     "heroku-postbuild": "npm run build",
     "import-data": "node dev-data/data/import-dev-data.js --import",
     "delete-data": "node dev-data/data/import-dev-data.js --delete"
