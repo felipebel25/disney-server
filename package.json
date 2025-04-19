@@ -4,10 +4,12 @@
   "description": "natours express mongodb",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch server.js",
+    "start-dev": "node server.js",
     "start:prod": "NODE_ENV=production node --watch server.js",
     "debug": "ndb server.js",
-    "build": "npm install && esbuild server.js --bundle --platform=node --outfile=dist/server.js && node dist/server.js",
+    "build": "parcel build src/index.js --target node --out-dir dist --bundle-node-modules",
+    "start": "node dist/index.js",
+    "heroku-postbuild": "npm run build",
     "import-data": "node dev-data/data/import-dev-data.js --import",
     "delete-data": "node dev-data/data/import-dev-data.js --delete"
   },
@@ -22,11 +24,9 @@
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.0.0",
     "hpp": "^0.2.3",
-    "jimp": "^1.6.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.3",
     "morgan": "^1.10.0",
-    "nodemailer": "^6.9.15",
     "pngjs": "^7.0.0",
     "screenshot-desktop": "^1.15.0",
     "sharp": "^0.33.5",
@@ -35,7 +35,6 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
-    "esbuild": "^0.25.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
@@ -45,6 +44,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.35.0",
     "ndb": "^1.1.5",
+    "parcel": "^2.14.4",
     "prettier": "^3.3.3"
   }
 }
