@@ -7,7 +7,7 @@
     "start-dev": "node server.js",
     "start:prod": "NODE_ENV=production node --watch server.js",
     "debug": "ndb server.js",
-    "build": "parcel build server.js",
+    "build": "parcel build server.js --dist-dir dist",
     "start": "node dist/server.js",
     "heroku-postbuild": "npm run build",
     "import-data": "node dev-data/data/import-dev-data.js --import",
@@ -15,6 +15,12 @@
   },
   "author": "felipe medina",
   "license": "ISC",
+  "targets": {
+    "default": {
+      "context": "node",
+      "distDir": "dist"
+    }
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
